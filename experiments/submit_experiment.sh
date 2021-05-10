@@ -1,17 +1,14 @@
 #!/bin/bash
 
 # Parameters
-#N_LIST=(250 300 400 500 1000 2000 3000 4000 5000)
-N_LIST=(100 150 200)
-SYMMETRY_LIST=(0)
-#N_LIST=(1000)
-#SYMMETRY_LIST=(0 3 5 7 10 15 20 30) # 40 50
+N_LIST=(100 150 200 250 300 400 500 1000 2000 3000 4000 5000)
+SYMMETRY_LIST=(0 3 5 7 10 15 20 30) # 40 50
 BATCH_LIST=$(seq 1 100)
 BATCH_SIZE=1
 
 # Slurm parameters
-MEMO=2G                             # Memory required (2GB)
-TIME=00:30:00                       # Time required (2h)
+MEMO=5G                             # Memory required (5GB)
+TIME=02:00:00                       # Time required (2h)
 
 # Assemble order prefix
 ORDP="sbatch --mem="$MEMO" --nodes=1 --ntasks=1 --cpus-per-task=1 --time="$TIME
@@ -32,7 +29,7 @@ for BATCH in $BATCH_LIST; do
       JOBN=$N"_"$SYMMETRY"_"$BATCH
 
       OUT_FILE=$OUT_DIR"/synthetic_s"$SYMMETRY"_n"$N"_b"$BATCH".txta"
-      
+
       if [[ ! -f $OUT_FILE ]]; then
         # Script to be run
         SCRIPT="experiment_synthetic.sh $N $SYMMETRY $BATCH $BATCH_SIZE"
@@ -44,9 +41,9 @@ for BATCH in $BATCH_LIST; do
         # Print order
         echo $SCRIPT
         # Submit order
-        $ORD
+        #$ORD
         # Run command now
-        #./$SCRIPT
+        ./$SCRIPT
       fi
 
     done

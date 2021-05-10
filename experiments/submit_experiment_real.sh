@@ -2,13 +2,12 @@
 
 # Parameters
 DATASET_NAME_LIST=("meps_19" "meps_20" "meps_21" "facebook_1" "facebook_2" "bio" "blog_data")
-#DATASET_NAME_LIST=("facebook_1")
-BBOX_NAME_LIST=("RF") # "RF")
+BBOX_NAME_LIST=("NNet" "RF")
 EXP_ID_LIST=$(seq 1 100)
 
 # Slurm parameters
-MEMO=5G                             # Memory required (2GB)
-TIME=12:00:00                       # Time required (2h)
+MEMO=5G                             # Memory required (5GB)
+TIME=12:00:00                       # Time required (12h)
 
 # Assemble order prefix
 ORDP="sbatch --mem="$MEMO" --nodes=1 --ntasks=1 --cpus-per-task=1 --time="$TIME
@@ -41,7 +40,7 @@ for DATASET_NAME in "${DATASET_NAME_LIST[@]}"; do
         NUM_LINES=$(wc -l < $OUT_FILE)
         if [ $NUM_LINES -lt $TARGET_LINES ]; then
           echo "Number of lines found: "$NUM_LINES
-          RUN=1          
+          RUN=1
         fi
       fi
 
@@ -59,7 +58,7 @@ for DATASET_NAME in "${DATASET_NAME_LIST[@]}"; do
         # Submit order
         #$ORD
         # Run command now
-        #./$SCRIPT
+        ./$SCRIPT
       fi
 
     done

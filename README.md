@@ -1,6 +1,12 @@
 # Conformal histogram regression
 
-This repository contains a Python implementation of the conformal prediction method described in the accompanying paper.
+This repository contains a Python implementation of the conformal prediction method described in the accompanying paper: https://arxiv.org/abs/2105.08747
+
+```
+Matteo Sesia, Yaniv Romano
+"Conformal histogram regression"
+arXiv preprint, 2021
+```
 
 ## Overview
 

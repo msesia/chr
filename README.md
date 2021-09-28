@@ -5,7 +5,7 @@ This repository contains a Python implementation of the conformal prediction met
 ```
 Matteo Sesia, Yaniv Romano
 "Conformal histogram regression"
-arXiv preprint, 2021
+NeurIPS 2021 (spotlight, just accepted)
 ```
 
 ## Overview

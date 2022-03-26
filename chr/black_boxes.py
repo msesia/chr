@@ -1,7 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torch.tensor as tensor
+#import torch.tensor as tensor
+from torch import Tensor as tensor
 from torch.utils.data import DataLoader
 
 import six
